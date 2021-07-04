@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "awesome-project-a1a25"
+  },
+  "targets": {
+    "awesome-project-a1a25": {
+      "hosting": {
+        "lovely-offline": [
+          "awesome-project-a1a25"
+        ]
+      }
+    }
   }
 }

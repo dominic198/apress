@@ -9,6 +9,8 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const SHARED_MODULES = [
   MatToolbarModule,
@@ -20,6 +22,8 @@ const SHARED_MODULES = [
   MatSnackBarModule,
   MatInputModule,
   MatMenuModule,
+  FormsModule,
+  ReactiveFormsModule
  ];
 
  const SHARED_COMPONENTS = [];
