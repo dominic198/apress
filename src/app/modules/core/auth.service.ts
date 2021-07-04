@@ -23,8 +23,8 @@ export class AuthService {
   }
 
   get authenticated(): boolean {   
-    //return this.authState !== null;
-    return true;
+    return this.authState !== null;
+    //return true;
   }
 
   get id(): string {
