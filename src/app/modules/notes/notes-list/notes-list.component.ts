@@ -21,7 +21,7 @@ export class NotesListComponent implements OnInit {
   constructor(private db: DataService) {}
 
   ngOnInit() {
-    this.notes$ = this.db.getNotes();
+    this.notes$ = this.db.initializeNotes();
     this.isDbLoading$ = this.db.isLoading$;
   }
 }

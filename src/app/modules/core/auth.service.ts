@@ -15,26 +15,24 @@ export class AuthService {
   public authErrorMessages$ = new BehaviorSubject<string>(null);
   public isLoading$ = new BehaviorSubject<boolean>(true);
   public user$ = new BehaviorSubject<User>(null);
-
   private authState = null;
 
   constructor(private afAuth: AngularFireAuth) {
-    this.isLoggedIn().subscribe(user => (this.authState = user));
-  }
+    this.isLoggedIn().subscribe(user => (this.authState = user));  
+  } 
 
-  get authenticated(): boolean {   
-    return this.authState !== null;
-    //return true;
+  get authenticated(): Observable<any> { 
+     return this.afAuth.authState;
   }
 
   get id(): string {
     return this.authenticated ? this.authState.uid : "";
   }
 
-  private isLoggedIn(): Observable<User | null> {
+  private isLoggedIn(): Observable<User> {
     return this.afAuth.authState.pipe(
       map(user => {
-        if (user) {
+        if (user) {        
           const { email, uid } = user;
           this.user$.next({ email, uid });
           return { email, uid };
@@ -63,6 +61,10 @@ export class AuthService {
     });
   }
 
+  public getToken(): Observable<string> {
+    return this.afAuth.idToken;
+  }
+
   public logOutFirebase() {
     this.isLoading$.next(true);
     return this.afAuth.auth.signOut();
@@ -80,7 +82,6 @@ export class AuthService {
     const {
       user: { email, uid }
     } = UserCredential;
-
     this.isLoading$.next(false);
   }
 

@@ -6,7 +6,7 @@
     </button>
   </mat-toolbar>
   <mat-menu x-position="before" #menu="matMenu">
-    <button mat-menu-item>Home</button>
+    <button mat-menu-item [routerLink]="['/user']">Home</button>
     <button mat-menu-item>Profile</button>
-    <button mat-menu-item>Add Note</button>
+    <button mat-menu-item [routerLink]="['/notes']">Add Note</button>
   </mat-menu>

@@ -27,7 +27,7 @@ export class NoteDetailsComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
     this.id = id;
-    this.note$ = this.data.getNote(id);
+    this.note$ = this.data.getNoteFromDirectApi(id);
     this.isDbLoading$ = this.data.isLoading$;
   }
 

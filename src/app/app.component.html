@@ -1,6 +1,9 @@
 <div class="appress-pwa-note">
   <app-header></app-header>
   <div class="main">
+    <div *ngIf="joke$ | async as joke" class="joke">
+      {{ joke }}
+      </div>
     <router-outlet></router-outlet>
   </div>
   <app-footer></app-footer>

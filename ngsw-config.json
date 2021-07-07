@@ -1,6 +1,9 @@
 {
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
+  "appData": {
+    "version": "1.0.2"
+  },
   "assetGroups": [
     {
       "name": "app",
@@ -12,6 +15,12 @@
           "/manifest.webmanifest",
           "/*.css",
           "/*.js"
+        ],
+        "urls": [
+          "https://fonts.googleapis.com/icon?family=Material+Icons",
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500",
+          "https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fCRc4AMP6lbBP.woff2",
+          "https://fonts.gstatic.com/s/materialicons/v41/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2"
         ]
       }
     },
@@ -24,6 +33,33 @@
           "/assets/**",
           "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "api-network-first",
+      "version": 1,
+      "urls": [
+        "https://firestore.googleapis.com/v1beta1/**"
+      ],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 100,
+        "maxAge": "10d",
+        "timeout": "5s"
+      }
+    },
+    {
+      "name": "api-cache-first",
+      "version": 1,
+      "urls": [
+        "https://icanhazdadjoke.com"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxSize": 20,
+        "maxAge": "15m"
       }
     }
   ]

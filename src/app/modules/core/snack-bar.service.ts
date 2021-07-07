@@ -7,9 +7,13 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 export class SnackBarService {
   constructor(public snackBar: MatSnackBar) {}
 
-  open(message) {
+  action(message, buttonTitle) {
+    return this.snackBar.open(message, buttonTitle, { duration: 1500000 }).onAction();
+  }
+
+  open(message, duration?) {
     this.snackBar.open(message, null, {
-      duration: 3500
+      duration: duration ? duration : 3500
     });
   }
 
